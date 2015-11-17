@@ -28,7 +28,7 @@ def put(name, snippet, hide=False):
             cursor.execute(command, (snippet, hide, name))
         connection.commit()
         logging.debug("Snippet stored successfully.")
-        return name, snippet
+    return name, snippet
     
 def get(name):
     """
@@ -102,7 +102,7 @@ def main():
 
     
     if kommand == "put":
-        another_name, another_snippet = put(**arguments) 
+        another_name, another_snippet, hide = put(**arguments) 
         #Question: Why can't I use "hide" here? I get an unpack error.
         print(another_name, another_snippet)
         print("Stored {!r} as {!r}".format(another_snippet, another_name))
